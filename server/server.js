@@ -8,28 +8,28 @@ const morgan = require('morgan')
 const { reset } = require('nodemon')
 const client = require('./db')
 
-const cors = require(cors())
+const cors = require('cors')
 
 
 
 
 
 
-app.use(cors())
+app.use(cors)
 app.use(morgan("tiny"))
 app.use(express.static("public"));
 app.use(express.json())
 
 
-app.route('/task')
-//     .get(async (req, res) => {  //get all from Database
-//         try {
-//             const result = await client.query('SELECT * FROM task')
-//             res.json(result.rows)
-//         } catch (err) {
-//             res.status(500).json({ error: err});
-//         }     
-//     })
+app.route('/api')
+    .get(async (req, res) => {  //get all from Database
+        try {
+            //const result = {data: "user 1", user: "user 2"} // await client.query('SELECT * FROM task')
+            res.json({msg: 'Working in server.js'}).status(200) //.rows
+        } catch (err) {
+            res.status(500).json({ error: err});
+        }     
+    })
 
 //     .post(async (req, res) => {  //INSERT INTO task (name, age) VALUES ('John', 33); DB Insert
 //         try {               

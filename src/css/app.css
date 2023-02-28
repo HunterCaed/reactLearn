@@ -10,7 +10,7 @@
 *, *::before, *::after {
     font-family: Gotham Rounded, sans-serif;
     box-sizing: border-box;
-    background: rgb(100, 105, 103);
+    background: rgb(148, 152, 151);
 }
 html {
     font-size: 25px;

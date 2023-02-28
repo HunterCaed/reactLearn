@@ -16,14 +16,15 @@ const LOCAL_STORAGE_KEY = 'cookingWithReact.recipes'
 function App() {
 
   //const [data, setData] = React.useState(null)
-  const [backendData, setBackEndData] =useState([{}])
+  //const [backendData, setBackEndData] =useState([{}])
 
   useEffect(() => {
-    fetch("/api").then(
-      response => response.json()
-    ).then(
-      data => setBackEndData(data)
-    )
+    const getDatMore = async () => {
+      const res = await fetch('http://localhost:4000/api')
+      const data = await res.json()
+      console.log(data)
+    }
+    getDatMore()
   }, [])
 
   const[selectedRecipeId, setSelectedRecipeId] = useState()
@@ -103,7 +104,7 @@ function App() {
       
       <Recipelist recipes={recipes}/>
       {selectedRecipe && <RecipeEdit recipe={selectedRecipe}/> }
-      <DataFetching />
+      {/* <DataFetching /> */}
       {/* <p>{!data ? "Loading..." : data}</p> */}
     </RecipeContext.Provider>
     </>
